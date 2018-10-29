@@ -1,24 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <form action="class.php" method="post">
-        Masukan angka 1<input type="text" name="input1"><br>
-        Masukan angka 2<input type="text" name="input2"><br>
-        Pilih Operasi
-        <select name="operasi">
-            <option value="+">+</option>
-            <option value="-">-</option>
-            <option value="*">*</option>
-            <option value="/">/</option>
-        </select>
-        <br>
-        <input type="submit" value="Kirim">
-    </form>
-</body>
+    <head>
+        <title>Document</title>
+    </head>
+    <body>
+        <form action="class.php?tambah=mahasiswa" method="post">
+            <tr>
+                <td>Nama</td>
+                <td>:</td>
+                <td><input type="text" name="nama"></td>
+            </tr>
+            <tr>
+                <td>Nim</td>
+                <td>:</td>
+                <td><input type="text" name="nim"></td>
+            </tr>
+            <tr>
+                <td>Tanggal Lahir</td>
+                <td>:</td>
+                <td><input type="date" name="tgl" id=""></td>    
+            </tr>
+            <tr><input type="submit" value="Submit"></tr>
+        </form>
+        <a href="data.php">lihat data</a>
+    </body>
 </html>
