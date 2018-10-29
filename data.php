@@ -1,30 +1,29 @@
-<table border=1>
-    <thead>
+<?php
+require("class.php");
+?>
+<form method="post">
+</form>
+    <table border="1">
+        <th>No</th>
         <th>Nama</th>
         <th>Nim</th>
         <th>Tanggal Lahir</th>
-        <th>Aksi</th>
-    </thead>
-    <tbody>
-<?php
-if (mysqli_num_rows($result) > 0) {
-    while($row = mysqli_fetch_assoc($result)) {
-        $nim = $row['nim'];
-        echo "<tr>";
-        echo "<td>" . $row["nama"]. "</td>"; 
-        echo "<td>" . $row["nim"]. "</td>";
-        echo "<td>" . $row["tgl_lahir"]. "</td>";
-        echo "<td>
-            <a href='form_edit.php?nim=$nim'>Edit</a> | 
-            <a href='delete.php?nim=$nim'>Hapus</a> | 
-            
-            </td>";
-        echo "</tr>";
-    }
-} else {
-    echo "0 results";
-}
-mysqli_close($conn);
-?> 
-    </tbody>
+        <?php
+        $no=1;
+        $result = $data ->lihat_data();
+        while($row =$result -> fetch(PDO :: FETCH_ASSOC)){
+    ?>
+    <tr>
+        <td><?php echo $no;?></td>
+            <td><?php echo $row['nama'];?></td>
+            <td><?php echo $row['nim'];?></td>
+            <td><?php echo $row['tanggal_lahir'];?></td>
+            <td><a href="class.php?delete=<?php echo $row['nim']?>">Hapus</a></td>
+            <td><a href="edit.php?id=<?php echo $row['nim'];?>">Edit</a></td>
+    </tr>
+        <?php
+             $no++;
+     }
+         ?>        
 </table>
+<a href="data.php">lihat data</a>
